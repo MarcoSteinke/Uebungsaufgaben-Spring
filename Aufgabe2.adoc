@@ -1,0 +1,26 @@
+## 2️⃣ Link Shortener:
+
+Nun soll ein Link-Shortener so wie https://www.bit.ly erstellt werden, mit Hilfe dessen es möglich ist, einen Link per Redirect zu erreichen. Dies soll wie folgt ablaufen:
+
+#### Aufgabe (a):
+
+Ein Nutzer möchte einen Shortlink für die Seite `https://www.hhu.de` erstellen. Er geht auf die Seite `localhost:8080/` und findet dort ein Formular vor, welches ein Eingabefeld für eine `URL` so wie einen Button zum abschicken enthält. Daraufhin soll ein POST-Request auf `localhost:8080/add` durchgeführt werden und der User nun ein Feld vor sich sieht, in welchem sich der generierte Shortlink, wie zum Beispiel `localhost:8080/4Jd8A` befindet. Ruft man nun diesen Link auf, so wird der User auf die Seite `https://www.hhu.de` weitergeleitet.
+
+#### 💡 Tipps:
+
+* für dieses Problem existiert eine optimale Datenstruktur für die Speicherung der Shortlinks
+* `/` soll im GET-Fall das Formular anzeigen.
+* `/add` wird nur für das Hinzufügen neuer Routen genutzt.
+* `/XYZ` soll für beliebige Zeichen anstelle von XYZ auf das Ziel weiterleiten, falls dafür eine Weiterleitung existiert.
+
+#### Aufgabe (b):
+
+Nun sollen alle bisher erstellten Links unter `localhost:8080/` aufgelistet werden. Außerdem soll für jeden Eintrag ein `DELETE`-Button angezeigt werden, welcher zu `/delete/SHORTLINK` führt. Im Beispiel von eben soll dann per `/delete/4Jd8A` dann der zugehörige Shortlink gelöscht werden und der Eintrag verschwinden.
+
+#### 💡 Tipps:
+
+* für die Erzeugung der DELETE-Buttons kann man `<a class="btn btn-danger" href="" th:href="">🗑️</a>` genutzt werden, um die Redirects umzusetzen.
+* dabei entspricht XYZ dem jeweiligen Shortvalue, zb `4Jd8A` im Falle von vorher.
+* statt Shortvalues für die Routen `add` und `delete` zu benutzen, könnten auch zusätzlich ID's genutzt werden.
+
+___
