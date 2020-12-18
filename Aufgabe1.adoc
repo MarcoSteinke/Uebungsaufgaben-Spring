@@ -1,0 +1,51 @@
+## 1️⃣ Profilseite:
+
+#### Aufgabe (a):
+
+Schreibe eine Spring-Boot-Webanwendung, welche es einem Nutzer erlaubt sich zu registrieren. Dies bedeutet, dass der User beim Aufruf von `localhost:8080` in einer Webansicht landet, welche ein Formular mit den Feldern `Vorname`, `Nachname`, `Email` und `Passwort`, so wie einem `Button` zum abschicken des Formulars beinhaltet. Es sollen sinnvolle Datentypen für die Eingabefelder gewählt werden. Nach der Eingabe des Formulars soll der Nutzer auf die Seite `/landing` weitergeleitet werden, wobei dort der Text `Willkommen XYZ` angezeigt werden soll. `XYZ` soll mit dem jeweiligen Vornamen ersetzt werden. Beim Aufruf von `/profil` soll eine Seite geöffnet werden, in welchem in einer Tabelle untereinander alle Nutzerdaten für diesen User ausgegeben werden sollen.
+
+#### 💡 Tipps:
+
+* es ist sinnvoll die Logik in eine separate Klasse auszulagern.
+* versuche, mittels `th:object` sofort das Eingabeformular in ein Objekt zu übersetzen.
+
+#### Aufgabe (b):
+
+Wenn der User das Formular eingegeben hat, soll nun eine `Session` existieren. Die Session erlaubt dem User dann, die Seiten `/landing` bzw `/profil` aufzurufen. Sollte der User noch nicht eingeloggt sein, also das Formular ausgefüllt haben, so soll er auf der Seite `/error` landen und eine entsprechende Fehlermeldung lesen. Außerdem soll nun eine Route `/logout` erstellt werden, welche den User ausloggt indem die Session unterbrochen wird. Jetzt soll der User wieder besagte Seiten nicht aufrufen können.
+
+
+#### 💡 Tipps:
+
+* gebe die Session, falls sie existiert steht über den Controller an das Model weiter, bis der User `/logout` aufruft.
+* Prüfe bei jedem Aufruf einer Seite, ob eine Session existiert.
+* eine Session kann man sich wie folgt vorstellen:
+
+```java
+public class Session {
+
+    private final UUID id;
+    private final User user;
+
+    private Session(User user) {
+        this.id = UUID.randomUUID();
+        this.user = user;
+    }
+    
+    public Session start(User user) {
+        return new Session(user);
+    }
+}
+```
+
+Für die Profilseite eines Users selbst muss noch eine entsprechende Methode in der Klasse Session erstellt werden, diese kann allerdings auch einfach ein Getter auf den User sein!
+
+#### Aufgabe (c):
+
+Jedem User soll nun außerdem eine id vom Typ `Long` hinzugefügt werden. Diese sollen inkrementiert verteilt werden, sodass der 1. User die id `1` erhält, der zweite die id `2` und so weiter. Außerdem soll nun über die Route `/profile/1` das Profil des Users mit der id `1`, über die Route `/profile/2` das Profil des Users mit der id `2` und so weiter ausgegeben werden. Dies soll ebenfalls nur im Falle einer validen Session möglich sein.
+
+#### 💡 Tipps:
+
+* Für diese Teilaufgabe benötigt man neben `@RequestParameter` noch `@PathVariable`.
+* Schreibe eine Methode, welche automatisch mehrere Nutzer künstlich anlegt. Dadurch müssen nicht nach jedem Restart händisch User hinzugefügt werden.
+
+___
