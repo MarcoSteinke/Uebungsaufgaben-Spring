@@ -51,6 +51,8 @@ public class Session {
 }
 ```
 
+Für die Profilseite eines Users selbst muss noch eine entsprechende Methode in der Klasse Session erstellt werden, diese kann allerdings auch einfach ein Getter auf den User sein!
+
 #### Aufgabe (c):
 
 Jedem User soll nun außerdem eine id vom Typ `Long` hinzugefügt werden. Diese sollen inkrementiert verteilt werden, sodass der 1. User die id `1` erhält, der zweite die id `2` und so weiter. Außerdem soll nun über die Route `/profile/1` das Profil des Users mit der id `1`, über die Route `/profile/2` das Profil des Users mit der id `2` und so weiter ausgegeben werden. Dies soll ebenfalls nur im Falle einer validen Session möglich sein.
