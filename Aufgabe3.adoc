@@ -1,0 +1,33 @@
+## 3️⃣ Blog:
+
+In dieser Aufgabe wirst du eine Software für einen Blog implementieren. Dieser Blog soll vorallem aus drei Bestandteilen bestehen:
+
+#### Aufgabe (a):
+
+Implementiere die Hauptkomponenten für dieses Projekt:
+
+* Erstellungsformular
+* Post-Auflistung
+* Post-Ansicht
+
+#### 1. Erstellungsformular:
+
+Dieses Formular soll die Felder `Titel`, `Autor`, `Datum` und `Inhalt` umfassen. Dabei sollen sinnvolle Datentypen gewählt werden. Das Formular soll über die Route `/new` erreichbar sein. Wurde ein Post erstellt und das Formular abgeschickt, so soll der User direkt in diesen neuen Post weitergeleitet werden. Zusätzlich soll jeder Post noch eine
+`ID` besitzen.
+
+#### 2. Post-Auflistung:
+
+Diese Webansicht listet alle Beiträge auf und zeigt dabei Titel, Autor, Datum  an. Außerdem soll für jeden aufgelisteten Post einen Button geben, welcher einen in die Post-Ansicht weiterleitet. Die Auflistung aller Posts soll direkt per `/` aufrufbar sein.
+
+#### 3. Post-Ansicht:
+
+Die Post-Ansicht zeigt dann `Titel`, `Autor`, `Datum` und zusätzlich den gesamten `Inhalt` an. Die Route für die jeweilige Ansicht findet man unter `/post/ID`.
+
+#### 💡 Tipps:
+
+* Für die Weiterleitungen kann im richtigen Moment auch `redirect:...` im Controller genutzt werden.
+* Design ist nicht alles, sorge zuerst dafür dass die einzelnen Ansichten untereinander richtig verdrahtet sind!
+
+####Aufgabe (b):
+
+Nun sollen auch `DELETE`-Buttons für die einzelnen Posts existieren. Löse dies ähnlich zu Aufgabe (b) im `Link Shortener`.
