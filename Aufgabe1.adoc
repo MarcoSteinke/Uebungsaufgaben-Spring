@@ -50,6 +50,6 @@ Jedem User soll nun außerdem eine id vom Typ `Long` hinzugefügt werden. Diese 
 
 ___
 
-## Extraaufgabe:
+## Bonusaufgabe:
 
 Schreibe das Programm so um, dass bei der Registrierung auf Duplikate bezüglich der Emailadresse geprüft wird. Sollte bereits ein Account für eine bestimmte Emailadresse existieren, soll ein Fehler ausgegeben werden.
