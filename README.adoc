@@ -95,7 +95,7 @@ ___
 
 In dieser Aufgabe wirst du eine Software für einen Blog implementieren. Dieser Blog soll vorallem aus drei Bestandteilen bestehen:
 
-####Aufgabe (a):
+#### Aufgabe (a):
 
 Implementiere die Hauptkomponenten für dieses Projekt:
 
