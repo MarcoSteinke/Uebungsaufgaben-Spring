@@ -49,3 +49,7 @@ Jedem User soll nun außerdem eine id vom Typ `Long` hinzugefügt werden. Diese 
 * Schreibe eine Methode, welche automatisch mehrere Nutzer künstlich anlegt. Dadurch müssen nicht nach jedem Restart händisch User hinzugefügt werden.
 
 ___
+
+## Extraaufgabe:
+
+Schreibe das Programm so um, dass bei der Registrierung auf Duplikate bezüglich der Emailadresse geprüft wird. Sollte bereits ein Account für eine bestimmte Emailadresse existieren, soll ein Fehler ausgegeben werden.
