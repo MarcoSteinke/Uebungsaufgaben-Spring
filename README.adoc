@@ -1,0 +1,124 @@
+# ⚡ Uebungsaufgaben-Spring:
+___
+
+## ℹ️ About:
+
+In diesem Repository befinden sich verschiedene Übungsaufgaben, welche verschiedene Aspekte bei dem Umgang mit Spring vertiefen sollen. Die Beispiele werden nach und nach erweitert!
+
+## 💡 Tipps:
+
+* Für alle Aufgaben soll der Spring Initializer benutzt werden. Dadurch wird die Erzeugung eines neuen Projekts trainiert.
+* Bitte halte dich bei der Bearbeitung der Aufgaben an Prinzipien für `Clean Code` (wie zum Beispiel in `Effective Java`).
+* Alle Aufgaben benötigen die Dependencies `Spring Web`, `Spring Dev Tools`, so wie `Thymeleaf`.
+* Zur Vereinfachung kann auch immer `Lombok` genutzt werden.
+
+## 1️⃣ Profilseite:
+
+#### Aufgabe (a):
+
+Schreibe eine Spring-Boot-Webanwendung, welche es einem Nutzer erlaubt sich zu registrieren. Dies bedeutet, dass der User beim Aufruf von `localhost:8080` in einer Webansicht landet, welche ein Formular mit den Feldern `Vorname`, `Nachname`, `Email` und `Passwort`, so wie einem `Button` zum abschicken des Formulars beinhaltet. Es sollen sinnvolle Datentypen für die Eingabefelder gewählt werden. Nach der Eingabe des Formulars soll der Nutzer auf die Seite `/landing` weitergeleitet werden, wobei dort der Text `Willkommen XYZ` angezeigt werden soll. `XYZ` soll mit dem jeweiligen Vornamen ersetzt werden. Beim Aufruf von `/profil` soll eine Seite geöffnet werden, in welchem in einer Tabelle untereinander alle Nutzerdaten für diesen User ausgegeben werden sollen.
+
+#### 💡 Tipps:
+
+* es ist sinnvoll die Logik in eine separate Klasse auszulagern.
+* versuche, mittels `th:object` sofort das Eingabeformular in ein Objekt zu übersetzen.
+
+#### Aufgabe (b):
+
+Wenn der User das Formular eingegeben hat, soll nun eine `Session` existieren. Die Session erlaubt dem User dann, die Seiten `/landing` bzw `/profil` aufzurufen. Sollte der User noch nicht eingeloggt sein, also das Formular ausgefüllt haben, so soll er auf der Seite `/error` landen und eine entsprechende Fehlermeldung lesen. Außerdem soll nun eine Route `/logout` erstellt werden, welche den User ausloggt indem die Session unterbrochen wird. Jetzt soll der User wieder besagte Seiten nicht aufrufen können.
+
+
+#### 💡 Tipps:
+
+* gebe die Session, falls sie existiert steht über den Controller an das Model weiter, bis der User `/logout` aufruft.
+* Prüfe bei jedem Aufruf einer Seite, ob eine Session existiert.
+* eine Session kann man sich wie folgt vorstellen:
+
+```java
+public class Session {
+
+    private final UUID id;
+    private final User user;
+
+    private Session(User user) {
+        this.id = UUID.randomUUID();
+        this.user = user;
+    }
+    
+    public Session start(User user) {
+        return new Session(user);
+    }
+}
+```
+
+#### Aufgabe (c):
+
+Jedem User soll nun außerdem eine id vom Typ `Long` hinzugefügt werden. Diese sollen inkrementiert verteilt werden, sodass der 1. User die id `1` erhält, der zweite die id `2` und so weiter. Außerdem soll nun über die Route `/profile/1` das Profil des Users mit der id `1`, über die Route `/profile/2` das Profil des Users mit der id `2` und so weiter ausgegeben werden. Dies soll ebenfalls nur im Falle einer validen Session möglich sein.
+
+#### 💡 Tipps:
+
+* Für diese Teilaufgabe benötigt man neben `@RequestParameter` noch `@PathVariable`.
+* Schreibe eine Methode, welche automatisch mehrere Nutzer künstlich anlegt. Dadurch müssen nicht nach jedem Restart händisch User hinzugefügt werden.
+
+___
+
+## 2️⃣ Link Shortener:
+
+Nun soll ein Link-Shortener so wie https://www.bit.ly erstellt werden, mit Hilfe dessen es möglich ist, einen Link per Redirect zu erreichen. Dies soll wie folgt ablaufen:
+
+#### Aufgabe (a):
+
+Ein Nutzer möchte einen Shortlink für die Seite `https://www.hhu.de` erstellen. Er geht auf die Seite `localhost:8080/` und findet dort ein Formular vor, welches ein Eingabefeld für eine `URL` so wie einen Button zum abschicken enthält. Daraufhin soll ein POST-Request auf `localhost:8080/add` durchgeführt werden und der User nun ein Feld vor sich sieht, in welchem sich der generierte Shortlink, wie zum Beispiel `localhost:8080/4Jd8A` befindet. Ruft man nun diesen Link auf, so wird der User auf die Seite `https://www.hhu.de` weitergeleitet.
+
+#### 💡 Tipps:
+
+* für dieses Problem existiert eine optimale Datenstruktur für die Speicherung der Shortlinks
+* `/` soll im GET-Fall das Formular anzeigen.
+* `/add` wird nur für das Hinzufügen neuer Routen genutzt.
+* `/XYZ` soll für beliebige Zeichen anstelle von XYZ auf das Ziel weiterleiten, falls dafür eine Weiterleitung existiert.
+
+#### Aufgabe (b):
+
+Nun sollen alle bisher erstellten Links unter `localhost:8080/` aufgelistet werden. Außerdem soll für jeden Eintrag ein `DELETE`-Button angezeigt werden, welcher zu `/delete/SHORTLINK` führt. Im Beispiel von eben soll dann per `/delete/4Jd8A` dann der zugehörige Shortlink gelöscht werden und der Eintrag verschwinden.
+
+#### 💡 Tipps:
+
+* für die Erzeugung der DELETE-Buttons kann man `<a class="btn btn-danger" href="" th:href="">🗑️</a>` genutzt werden, um die Redirects umzusetzen.
+* dabei entspricht XYZ dem jeweiligen Shortvalue, zb `4Jd8A` im Falle von vorher.
+* statt Shortvalues für die Routen `add` und `delete` zu benutzen, könnten auch zusätzlich ID's genutzt werden.
+
+___
+
+## 3️⃣ Blog:
+
+In dieser Aufgabe wirst du eine Software für einen Blog implementieren. Dieser Blog soll vorallem aus drei Bestandteilen bestehen:
+
+####Aufgabe (a):
+
+Implementiere die Hauptkomponenten für dieses Projekt:
+
+* Erstellungsformular
+* Post-Auflistung
+* Post-Ansicht
+
+#### 1. Erstellungsformular:
+
+Dieses Formular soll die Felder `Titel`, `Autor`, `Datum` und `Inhalt` umfassen. Dabei sollen sinnvolle Datentypen gewählt werden. Das Formular soll über die Route `/new` erreichbar sein. Wurde ein Post erstellt und das Formular abgeschickt, so soll der User direkt in diesen neuen Post weitergeleitet werden. Zusätzlich soll jeder Post noch eine
+`ID` besitzen.
+
+#### 2. Post-Auflistung:
+
+Diese Webansicht listet alle Beiträge auf und zeigt dabei Titel, Autor, Datum  an. Außerdem soll für jeden aufgelisteten Post einen Button geben, welcher einen in die Post-Ansicht weiterleitet. Die Auflistung aller Posts soll direkt per `/` aufrufbar sein.
+
+#### 3. Post-Ansicht:
+
+Die Post-Ansicht zeigt dann `Titel`, `Autor`, `Datum` und zusätzlich den gesamten `Inhalt` an. Die Route für die jeweilige Ansicht findet man unter `/post/ID`.
+
+#### 💡 Tipps:
+
+* Für die Weiterleitungen kann im richtigen Moment auch `redirect:...` im Controller genutzt werden.
+* Design ist nicht alles, sorge zuerst dafür dass die einzelnen Ansichten untereinander richtig verdrahtet sind!
+
+####Aufgabe (b):
+
+Nun sollen auch `DELETE`-Buttons für die einzelnen Posts existieren. Löse dies ähnlich zu Aufgabe (b) im `Link Shortener`.
