@@ -14,6 +14,6 @@ In diesem Repository befinden sich verschiedene Übungsaufgaben, welche verschie
 
 ## 1. Einführung in Spring:
 
-* https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe1.adoc[1. Profilseite]
-* https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe2.adoc[2. Link Shortener]
-* https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe3.adoc[3. Blog]
+* https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe1.adoc[1.1 Profilseite]
+* https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe2.adoc[1.2 Link Shortener]
+* https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe3.adoc[1.3 Blog]
