@@ -12,7 +12,7 @@ In diesem Repository befinden sich verschiedene Übungsaufgaben, welche verschie
 * Alle Aufgaben benötigen die Dependencies `Spring Web`, `Spring Dev Tools`, so wie `Thymeleaf`.
 * Zur Vereinfachung kann auch immer `Lombok` genutzt werden.
 
-## Links zu den Aufgaben:
+## 1. Einführung in Spring:
 
 * https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe1.adoc[1. Profilseite]
 * https://github.com/MarcoSteinke/Uebungsaufgaben-Spring/blob/main/Aufgabe2.adoc[2. Link Shortener]
